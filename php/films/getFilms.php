@@ -7,8 +7,10 @@
 
     // Function that puts all films in a json file or in a database
 
+    
     $searchTerm = $_GET['search'];
-    $data = $_GET('http://www.omdbapi.com/?apikey=d9ea300e&');
+    $request = "http://www.omdbapi.com/?apikey=d9ea300e&s=" + $searchTerm;
+    $data = $_GET($request);
 
     // Decode the json file to an array
     $moviesArray = json_decode($data);

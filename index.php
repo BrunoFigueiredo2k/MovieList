@@ -40,6 +40,15 @@
                     window.location.href = "login.php";
                 });
             }
+
+            // Function that gets the movies from Omdb
+            function getMovies() {
+                //var search = $('#searchterm').val();
+                
+                $.getJSON('http://www.omdbapi.com/?apikey=d9ea300e&s="christmas', function(data) {
+                    console.log(data.Search[0].title);
+                });
+            }
         </script>
     </head>
 
@@ -48,7 +57,10 @@
             <td><p id="displayname">NULL</p><td>
         </div>
 
+        <td>Searchterm: <input type="textbox" class="textbox" id="searchterm" name="searchterm" size="16" autocomplete="off"></td><br>
+
         <button onclick="logOut()">Log out</button>
+        <button onclick="getMovies()">Get movies</button>
     </body>
 
     <script>
